@@ -179,12 +179,22 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white/10 backdrop-blur-md border-t border-white/20 py-6">
+      <footer className="bg-white/10 backdrop-blur-md border-t border-white/20 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center space-y-3">
+          <div className="flex flex-col items-center space-y-6">
             <p className="text-white/80 text-sm text-center">
               {t('app.description')}
             </p>
+            
+            {/* Organization Logos */}
+            <div className="w-full">
+              <img 
+                src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdOR0jc9m-WTCsKIzMW8xDax4OCZ74pgs98ouFR9mJC0RZyn1eHLyKL68UGG6lAz1oMI47WUxEAlnCd5NzjO2RXnEkYNbOaLjuu3YezvzfA5Q-i6LJmVPvoqNyqmac3IizBWcqF?key=7bjogBi_oMEDz1XlscuDmD4U"
+                alt="Partner Organizations"
+                className="w-full max-w-4xl mx-auto h-auto object-contain"
+                loading="lazy"
+              />
+            </div>
             
             {/* Made by bolt.new Logo */}
             <div className="flex items-center space-x-2 text-white/60 hover:text-white/80 transition-colors duration-300">
