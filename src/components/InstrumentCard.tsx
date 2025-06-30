@@ -14,7 +14,7 @@ const InstrumentCard: React.FC<InstrumentCardProps> = ({
   onClick,
   animationDelay = 0
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
@@ -25,6 +25,14 @@ const InstrumentCard: React.FC<InstrumentCardProps> = ({
   const handleImageError = () => {
     setImageError(true);
     setImageLoaded(true);
+  };
+
+  // Get the appropriate text based on current language
+  const getInstrumentText = () => {
+    if (i18n.language === 'en' && instrument.text_en) {
+      return instrument.text_en;
+    }
+    return instrument.text;
   };
 
   return (
@@ -70,7 +78,7 @@ const InstrumentCard: React.FC<InstrumentCardProps> = ({
             {instrument.name}
           </h3>
           <p className="text-white/80 text-sm line-clamp-3">
-            {instrument.text.substring(0, 100)}...
+            {getInstrumentText().substring(0, 100)}...
           </p>
           <div className="mt-4 flex items-center justify-center space-x-2 text-white/60">
             <Music size={16} />

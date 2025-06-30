@@ -15,7 +15,7 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
   onBack,
   audioEnabled
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [currentSong, setCurrentSong] = useState<Song | null>(null);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
@@ -31,6 +31,14 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
   const musicSamples = instrument.songs.filter(song => 
     !song.name.toLowerCase().includes('seslendirme')
   );
+
+  // Get the appropriate text based on current language
+  const getInstrumentText = () => {
+    if (i18n.language === 'en' && instrument.text_en) {
+      return instrument.text_en;
+    }
+    return instrument.text;
+  };
 
   useEffect(() => {
     // Reset states when instrument changes
@@ -180,7 +188,7 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
             </div>
             
             <p className="text-white/90 text-lg leading-relaxed">
-              {instrument.text}
+              {getInstrumentText()}
             </p>
             
             {isDescriptionPlaying && (

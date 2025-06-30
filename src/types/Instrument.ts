@@ -11,6 +11,7 @@ export interface Instrument {
   code: number;
   name: string;
   text: string;
+  text_en?: string;
   picture: string;
   backround: string;
   playing?: boolean;

@@ -10,7 +10,7 @@ import { Instrument } from './types/Instrument';
 import { loadInstruments } from './utils/dataLoader';
 
 function App() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [instruments, setInstruments] = useState<Instrument[]>([]);
   const [filteredInstruments, setFilteredInstruments] = useState<Instrument[]>([]);
   const [selectedInstrument, setSelectedInstrument] = useState<Instrument | null>(null);
@@ -39,13 +39,20 @@ function App() {
     if (searchQuery.trim() === '') {
       setFilteredInstruments(instruments);
     } else {
-      const filtered = instruments.filter(instrument =>
-        instrument.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        instrument.text.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+      const filtered = instruments.filter(instrument => {
+        const searchText = searchQuery.toLowerCase();
+        const instrumentName = instrument.name.toLowerCase();
+        
+        // Get the appropriate text based on current language
+        const instrumentText = i18n.language === 'en' && instrument.text_en 
+          ? instrument.text_en.toLowerCase()
+          : instrument.text.toLowerCase();
+        
+        return instrumentName.includes(searchText) || instrumentText.includes(searchText);
+      });
       setFilteredInstruments(filtered);
     }
-  }, [searchQuery, instruments]);
+  }, [searchQuery, instruments, i18n.language]);
 
   const handleInstrumentSelect = (instrument: Instrument) => {
     setSelectedInstrument(instrument);
