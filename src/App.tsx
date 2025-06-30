@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Home, Search, Volume2, VolumeX } from 'lucide-react';
 import InstrumentGrid from './components/InstrumentGrid';
 import InstrumentDetail from './components/InstrumentDetail';
 import SearchBar from './components/SearchBar';
 import LoadingScreen from './components/LoadingScreen';
+import LanguageSwitcher from './components/LanguageSwitcher';
 import { Instrument } from './types/Instrument';
 import { loadInstruments } from './utils/dataLoader';
 
 function App() {
+  const { t } = useTranslation();
   const [instruments, setInstruments] = useState<Instrument[]>([]);
   const [filteredInstruments, setFilteredInstruments] = useState<Instrument[]>([]);
   const [selectedInstrument, setSelectedInstrument] = useState<Instrument | null>(null);
@@ -75,16 +78,18 @@ function App() {
               <button
                 onClick={handleBackToHome}
                 className="btn-hover bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-all duration-300"
-                aria-label="Ana sayfa"
+                aria-label={t('navigation.home')}
               >
                 <Home size={24} />
               </button>
               <h1 className="text-2xl font-bold text-white font-rounded">
-                Müziğim ve Ben
+                {t('app.title')}
               </h1>
             </div>
             
             <div className="flex items-center space-x-3">
+              <LanguageSwitcher />
+              
               <button
                 onClick={toggleSearch}
                 className={`btn-hover p-2 rounded-full transition-all duration-300 ${
@@ -92,7 +97,7 @@ function App() {
                     ? 'bg-white text-purple-600' 
                     : 'bg-white/20 hover:bg-white/30 text-white'
                 }`}
-                aria-label="Arama"
+                aria-label={t('navigation.search')}
               >
                 <Search size={24} />
               </button>
@@ -104,7 +109,7 @@ function App() {
                     ? 'bg-white/20 hover:bg-white/30 text-white' 
                     : 'bg-red-500 hover:bg-red-600 text-white'
                 }`}
-                aria-label={audioEnabled ? 'Sesi kapat' : 'Sesi aç'}
+                aria-label={t('navigation.toggleSound')}
               >
                 {audioEnabled ? <Volume2 size={24} /> : <VolumeX size={24} />}
               </button>
@@ -120,7 +125,7 @@ function App() {
             <SearchBar
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
-              placeholder="Müzik aleti ara..."
+              placeholder={t('search.placeholder')}
             />
           </div>
         </div>
@@ -139,7 +144,7 @@ function App() {
             {searchQuery && (
               <div className="mb-6">
                 <p className="text-white/80 text-lg">
-                  "{searchQuery}" için {filteredInstruments.length} sonuç bulundu
+                  "{searchQuery}" {t('search.resultsFor')} {filteredInstruments.length} {t('search.resultsFound')}
                 </p>
               </div>
             )}
@@ -154,10 +159,10 @@ function App() {
                 <div className="bg-white/20 backdrop-blur-md rounded-2xl p-8 max-w-md mx-auto">
                   <Search size={48} className="text-white/60 mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-white mb-2">
-                    Sonuç bulunamadı
+                    {t('search.noResults')}
                   </h3>
                   <p className="text-white/80">
-                    Aradığınız müzik aleti bulunamadı. Farklı bir terim deneyin.
+                    {t('search.noResultsDescription')}
                   </p>
                 </div>
               </div>
@@ -171,7 +176,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center space-y-3">
             <p className="text-white/80 text-sm text-center">
-              Çocuklar için eğitici müzik aletleri uygulaması
+              {t('app.description')}
             </p>
             
             {/* Made by bolt.new Logo */}
@@ -180,7 +185,7 @@ function App() {
                 <div className="w-4 h-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-sm flex items-center justify-center">
                   <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                 </div>
-                <span className="text-xs font-medium">Supported by</span>
+                <span className="text-xs font-medium">{t('app.supportedBy')}</span>
                 <span className="text-xs font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                   bolt.new
                 </span>

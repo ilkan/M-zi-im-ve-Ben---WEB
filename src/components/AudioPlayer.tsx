@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Play, Pause, X, Volume2, RotateCcw } from 'lucide-react';
 import { Song } from '../types/Instrument';
 import { formatDuration } from '../utils/dataLoader';
@@ -10,6 +11,7 @@ interface AudioPlayerProps {
 }
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ song, onEnd, onClose }) => {
+  const { t } = useTranslation();
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -122,14 +124,14 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ song, onEnd, onClose }) => {
               <X size={20} className="text-red-600" />
             </div>
             <div>
-              <p className="font-semibold text-gray-800">Ses yüklenemedi</p>
+              <p className="font-semibold text-gray-800">{t('audio.loadError')}</p>
               <p className="text-sm text-gray-600">{song.name}</p>
             </div>
           </div>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
-            aria-label="Kapat"
+            aria-label={t('audio.close')}
           >
             <X size={20} className="text-gray-600" />
           </button>
@@ -157,7 +159,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ song, onEnd, onClose }) => {
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 flex-shrink-0 ml-2"
-            aria-label="Kapat"
+            aria-label={t('audio.close')}
           >
             <X size={20} className="text-gray-600" />
           </button>
@@ -168,7 +170,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ song, onEnd, onClose }) => {
             onClick={handleRestart}
             disabled={isLoading}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 disabled:opacity-50"
-            aria-label="Baştan başlat"
+            aria-label={t('audio.restart')}
           >
             <RotateCcw size={18} className="text-gray-600" />
           </button>
@@ -177,7 +179,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ song, onEnd, onClose }) => {
             onClick={togglePlayPause}
             disabled={isLoading}
             className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded-full flex items-center justify-center transition-all duration-200 disabled:opacity-50"
-            aria-label={isPlaying ? 'Duraklat' : 'Oynat'}
+            aria-label={isPlaying ? t('audio.pause') : t('audio.play')}
           >
             {isLoading ? (
               <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>

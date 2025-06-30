@@ -1,0 +1,44 @@
+{
+  "app": {
+    "title": "Müziğim ve Ben",
+    "description": "Çocuklar için eğitici müzik aletleri uygulaması",
+    "loading": "Müzik aletleri yükleniyor...",
+    "supportedBy": "Destekleyen"
+  },
+  "navigation": {
+    "home": "Ana sayfa",
+    "search": "Arama",
+    "toggleSound": "Sesi aç/kapat",
+    "back": "Geri Dön"
+  },
+  "search": {
+    "placeholder": "Müzik aleti ara...",
+    "resultsFor": "için",
+    "resultsFound": "sonuç bulundu",
+    "noResults": "Sonuç bulunamadı",
+    "noResultsDescription": "Aradığınız müzik aleti bulunamadı. Farklı bir terim deneyin.",
+    "clear": "Temizle"
+  },
+  "instrument": {
+    "description": "Açıklama",
+    "musicSamples": "Müzik Örnekleri",
+    "soundSamples": "ses örneği",
+    "playDescription": "Açıklamayı seslendir",
+    "stopDescription": "Seslendirmeyi durdur",
+    "readingDescription": "Açıklama okunuyor...",
+    "enableAudioMessage": "Müzik örneklerini dinlemek için ses ayarlarını açın",
+    "playing": "Çalıyor",
+    "performer": "Çalan"
+  },
+  "audio": {
+    "play": "Oynat",
+    "pause": "Duraklat",
+    "close": "Kapat",
+    "restart": "Baştan başlat",
+    "loadError": "Ses yüklenemedi"
+  },
+  "languages": {
+    "tr": "Türkçe",
+    "en": "English"
+  }
+}

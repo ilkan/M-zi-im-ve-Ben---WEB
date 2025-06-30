@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Play, Pause, Volume2, Music, VolumeX } from 'lucide-react';
 import { Instrument, Song } from '../types/Instrument';
 import AudioPlayer from './AudioPlayer';
@@ -14,6 +15,7 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
   onBack,
   audioEnabled
 }) => {
+  const { t } = useTranslation();
   const [currentSong, setCurrentSong] = useState<Song | null>(null);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
@@ -111,7 +113,7 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
           className="btn-hover bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-2xl flex items-center space-x-2 mb-8 transition-all duration-300"
         >
           <ArrowLeft size={20} />
-          <span className="font-medium">Geri Dön</span>
+          <span className="font-medium">{t('navigation.back')}</span>
         </button>
 
         <div className="bg-white/20 backdrop-blur-md rounded-3xl border border-white/20 overflow-hidden animate-scaleIn">
@@ -150,7 +152,7 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
           <div className="p-8 border-b border-white/20">
             <div className="flex items-start justify-between mb-4">
               <h2 className="text-2xl font-bold text-white font-rounded">
-                Açıklama
+                {t('instrument.description')}
               </h2>
               
               {descriptionAudio && (
@@ -164,7 +166,7 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
                         : 'bg-white/20 hover:bg-white/30 text-white'
                       : 'bg-white/10 text-white/50 cursor-not-allowed'
                   }`}
-                  aria-label={isDescriptionPlaying ? 'Seslendirmeyi durdur' : 'Açıklamayı seslendir'}
+                  aria-label={isDescriptionPlaying ? t('instrument.stopDescription') : t('instrument.playDescription')}
                 >
                   {isDescriptionPlaying ? (
                     <Pause size={24} />
@@ -184,7 +186,7 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
             {isDescriptionPlaying && (
               <div className="mt-4 flex items-center space-x-2 text-white/80">
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                <span className="text-sm">Açıklama okunuyor...</span>
+                <span className="text-sm">{t('instrument.readingDescription')}</span>
               </div>
             )}
           </div>
@@ -194,13 +196,13 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
             <div className="p-8">
               <h2 className="text-2xl font-bold text-white mb-6 font-rounded flex items-center space-x-2">
                 <Music size={28} />
-                <span>Müzik Örnekleri</span>
+                <span>{t('instrument.musicSamples')}</span>
               </h2>
               
               {!audioEnabled && (
                 <div className="bg-yellow-500/20 border border-yellow-500/30 rounded-2xl p-4 mb-6">
                   <p className="text-yellow-100 text-center">
-                    Müzik örneklerini dinlemek için ses ayarlarını açın
+                    {t('instrument.enableAudioMessage')}
                   </p>
                 </div>
               )}
@@ -223,7 +225,7 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
                         </h3>
                         {song.player && (
                           <p className="text-white/70 text-sm">
-                            Çalan: {song.player}
+                            {t('instrument.performer')}: {song.player}
                           </p>
                         )}
                       </div>
@@ -232,7 +234,7 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
                         {currentSong?.id === song.id ? (
                           <div className="flex items-center space-x-2 text-white">
                             <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                            <span className="text-sm">Çalıyor</span>
+                            <span className="text-sm">{t('instrument.playing')}</span>
                           </div>
                         ) : (
                           <div className={`p-3 rounded-full transition-all duration-300 ${

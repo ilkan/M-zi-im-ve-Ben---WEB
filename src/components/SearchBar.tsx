@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Search, X } from 'lucide-react';
 
 interface SearchBarProps {
@@ -10,8 +11,10 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({
   searchQuery,
   onSearchChange,
-  placeholder = 'Ara...'
+  placeholder
 }) => {
+  const { t } = useTranslation();
+
   const handleClear = () => {
     onSearchChange('');
   };
@@ -27,7 +30,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           type="text"
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
-          placeholder={placeholder}
+          placeholder={placeholder || t('search.placeholder')}
           className="w-full pl-12 pr-12 py-3 bg-white/90 backdrop-blur-md rounded-2xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent text-gray-800 placeholder-gray-500 text-lg"
           autoComplete="off"
         />
@@ -35,7 +38,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           <button
             onClick={handleClear}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
-            aria-label="Temizle"
+            aria-label={t('search.clear')}
           >
             <X size={20} />
           </button>

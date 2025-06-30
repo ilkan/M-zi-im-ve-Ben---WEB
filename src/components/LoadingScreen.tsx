@@ -1,7 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Music } from 'lucide-react';
 
 const LoadingScreen: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 flex items-center justify-center">
       <div className="text-center">
@@ -13,11 +16,11 @@ const LoadingScreen: React.FC = () => {
         </div>
         
         <h1 className="text-4xl font-bold text-white mb-4 font-rounded">
-          Müziğim ve Ben
+          {t('app.title')}
         </h1>
         
         <p className="text-white/80 text-lg mb-8">
-          Müzik aletleri yükleniyor...
+          {t('app.loading')}
         </p>
         
         <div className="flex justify-center space-x-2">

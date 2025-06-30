@@ -1,0 +1,44 @@
+{
+  "app": {
+    "title": "My Music and Me",
+    "description": "Educational musical instruments app for children",
+    "loading": "Loading musical instruments...",
+    "supportedBy": "Supported by"
+  },
+  "navigation": {
+    "home": "Home",
+    "search": "Search",
+    "toggleSound": "Toggle sound",
+    "back": "Go Back"
+  },
+  "search": {
+    "placeholder": "Search musical instrument...",
+    "resultsFor": "for",
+    "resultsFound": "results found",
+    "noResults": "No results found",
+    "noResultsDescription": "The musical instrument you searched for could not be found. Try a different term.",
+    "clear": "Clear"
+  },
+  "instrument": {
+    "description": "Description",
+    "musicSamples": "Music Samples",
+    "soundSamples": "sound samples",
+    "playDescription": "Play description",
+    "stopDescription": "Stop description",
+    "readingDescription": "Reading description...",
+    "enableAudioMessage": "Enable sound settings to listen to music samples",
+    "playing": "Playing",
+    "performer": "Performer"
+  },
+  "audio": {
+    "play": "Play",
+    "pause": "Pause",
+    "close": "Close",
+    "restart": "Restart",
+    "loadError": "Could not load audio"
+  },
+  "languages": {
+    "tr": "Türkçe",
+    "en": "English"
+  }
+}

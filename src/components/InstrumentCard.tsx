@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Music, Play } from 'lucide-react';
 import { Instrument } from '../types/Instrument';
 
@@ -13,6 +14,7 @@ const InstrumentCard: React.FC<InstrumentCardProps> = ({
   onClick,
   animationDelay = 0
 }) => {
+  const { t } = useTranslation();
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
@@ -73,7 +75,7 @@ const InstrumentCard: React.FC<InstrumentCardProps> = ({
           <div className="mt-4 flex items-center justify-center space-x-2 text-white/60">
             <Music size={16} />
             <span className="text-sm">
-              {instrument.songs.length} ses örneği
+              {instrument.songs.length} {t('instrument.soundSamples')}
             </span>
           </div>
         </div>
