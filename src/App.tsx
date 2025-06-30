@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Home, Search, Volume2, VolumeX } from 'lucide-react';
 import InstrumentGrid from './components/InstrumentGrid';
 import InstrumentDetail from './components/InstrumentDetail';

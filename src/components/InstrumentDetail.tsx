@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ArrowLeft, Play, Pause, Volume2, RotateCcw, Music, VolumeX } from 'lucide-react';
+import { ArrowLeft, Play, Pause, Volume2, Music, VolumeX } from 'lucide-react';
 import { Instrument, Song } from '../types/Instrument';
 import AudioPlayer from './AudioPlayer';
 
@@ -18,7 +18,6 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [isDescriptionPlaying, setIsDescriptionPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const descriptionAudioRef = useRef<HTMLAudioElement>(null);
 
   // Find the description audio (first song with "Seslendirme" in name)
@@ -207,7 +206,7 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
               )}
 
               <div className="grid gap-4">
-                {musicSamples.map((song, index) => (
+                {musicSamples.map((song) => (
                   <div
                     key={song.id}
                     className={`bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 transition-all duration-300 ${
