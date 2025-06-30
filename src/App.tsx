@@ -187,7 +187,7 @@ function App() {
             </p>
             
             {/* Organization Logos */}
-            <div className="w-full max-w-2xl">
+            <div className="w-full max-w-xs">
               <img 
                 src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdOR0jc9m-WTCsKIzMW8xDax4OCZ74pgs98ouFR9mJC0RZyn1eHLyKL68UGG6lAz1oMI47WUxEAlnCd5NzjO2RXnEkYNbOaLjuu3YezvzfA5Q-i6LJmVPvoqNyqmac3IizBWcqF?key=7bjogBi_oMEDz1XlscuDmD4U"
                 alt="Partner Organizations"
