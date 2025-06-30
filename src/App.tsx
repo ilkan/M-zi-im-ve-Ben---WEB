@@ -180,7 +180,7 @@ function App() {
                 <div className="w-4 h-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-sm flex items-center justify-center">
                   <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                 </div>
-                <span className="text-xs font-medium">Made by</span>
+                <span className="text-xs font-medium">Supported by</span>
                 <span className="text-xs font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                   bolt.new
                 </span>
