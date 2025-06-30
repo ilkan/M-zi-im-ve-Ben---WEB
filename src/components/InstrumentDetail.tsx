@@ -32,13 +32,8 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
     !song.name.toLowerCase().includes('seslendirme')
   );
 
-  // Get the appropriate text based on current language
-  const getInstrumentText = () => {
-    if (i18n.language === 'en' && instrument.text_en) {
-      return instrument.text_en;
-    }
-    return instrument.text;
-  };
+  // Check if description audio should be shown (only for Turkish)
+  const shouldShowDescriptionAudio = i18n.language === 'tr' && descriptionAudio;
 
   useEffect(() => {
     // Reset states when instrument changes
@@ -67,7 +62,7 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
   };
 
   const handleDescriptionAudioToggle = async () => {
-    if (!audioEnabled || !descriptionAudio) return;
+    if (!audioEnabled || !descriptionAudio || i18n.language !== 'tr') return;
 
     const audio = descriptionAudioRef.current;
     if (!audio) return;
@@ -111,6 +106,14 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
       audio.removeEventListener('error', handleError);
     };
   }, []);
+
+  // Get the appropriate text based on current language
+  const getInstrumentText = () => {
+    if (i18n.language === 'en' && instrument.text_en) {
+      return instrument.text_en;
+    }
+    return instrument.text;
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500">
@@ -163,7 +166,7 @@ const InstrumentDetail: React.FC<InstrumentDetailProps> = ({
                 {t('instrument.description')}
               </h2>
               
-              {descriptionAudio && (
+              {shouldShowDescriptionAudio && (
                 <button
                   onClick={handleDescriptionAudioToggle}
                   disabled={!audioEnabled}
