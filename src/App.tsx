@@ -168,10 +168,25 @@ function App() {
 
       {/* Footer */}
       <footer className="bg-white/10 backdrop-blur-md border-t border-white/20 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-white/80 text-sm">
-            Çocuklar için eğitici müzik aletleri uygulaması
-          </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center space-y-3">
+            <p className="text-white/80 text-sm text-center">
+              Çocuklar için eğitici müzik aletleri uygulaması
+            </p>
+            
+            {/* Made by Bolt Logo */}
+            <div className="flex items-center space-x-2 text-white/60 hover:text-white/80 transition-colors duration-300">
+              <div className="flex items-center space-x-1">
+                <div className="w-4 h-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-sm flex items-center justify-center">
+                  <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                </div>
+                <span className="text-xs font-medium">Made by</span>
+                <span className="text-xs font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                  Bolt
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
