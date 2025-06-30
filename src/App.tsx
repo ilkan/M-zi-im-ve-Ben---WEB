@@ -174,7 +174,7 @@ function App() {
               Çocuklar için eğitici müzik aletleri uygulaması
             </p>
             
-            {/* Made by Bolt Logo */}
+            {/* Made by bolt.new Logo */}
             <div className="flex items-center space-x-2 text-white/60 hover:text-white/80 transition-colors duration-300">
               <div className="flex items-center space-x-1">
                 <div className="w-4 h-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-sm flex items-center justify-center">
@@ -182,7 +182,7 @@ function App() {
                 </div>
                 <span className="text-xs font-medium">Made by</span>
                 <span className="text-xs font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-                  Bolt
+                  bolt.new
                 </span>
               </div>
             </div>
