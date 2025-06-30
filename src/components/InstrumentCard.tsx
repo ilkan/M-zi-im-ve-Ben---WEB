@@ -83,7 +83,7 @@ const InstrumentCard: React.FC<InstrumentCardProps> = ({
           <div className="mt-4 flex items-center justify-center space-x-2 text-white/60">
             <Music size={16} />
             <span className="text-sm">
-              {instrument.songs.length} {t('instrument.soundSamples')}
+              {instrument.songs.length-1} {t('instrument.soundSamples')}
             </span>
           </div>
         </div>
