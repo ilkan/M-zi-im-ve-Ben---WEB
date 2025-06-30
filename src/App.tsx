@@ -187,11 +187,11 @@ function App() {
             </p>
             
             {/* Organization Logos */}
-            <div className="w-full">
+            <div className="w-full max-w-2xl">
               <img 
                 src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdOR0jc9m-WTCsKIzMW8xDax4OCZ74pgs98ouFR9mJC0RZyn1eHLyKL68UGG6lAz1oMI47WUxEAlnCd5NzjO2RXnEkYNbOaLjuu3YezvzfA5Q-i6LJmVPvoqNyqmac3IizBWcqF?key=7bjogBi_oMEDz1XlscuDmD4U"
                 alt="Partner Organizations"
-                className="w-full max-w-4xl mx-auto h-auto object-contain"
+                className="w-full h-auto object-contain"
                 loading="lazy"
               />
             </div>
