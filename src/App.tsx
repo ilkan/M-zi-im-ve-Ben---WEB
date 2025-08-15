@@ -185,17 +185,7 @@ function App() {
             <p className="text-white/80 text-sm text-center">
               {t('app.description')}
             </p>
-            
-            {/* Organization Logos */}
-            <div className="w-full max-w-xs">
-              <img 
-                src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdOR0jc9m-WTCsKIzMW8xDax4OCZ74pgs98ouFR9mJC0RZyn1eHLyKL68UGG6lAz1oMI47WUxEAlnCd5NzjO2RXnEkYNbOaLjuu3YezvzfA5Q-i6LJmVPvoqNyqmac3IizBWcqF?key=7bjogBi_oMEDz1XlscuDmD4U"
-                alt="Partner Organizations"
-                className="w-full h-auto object-contain"
-                loading="lazy"
-              />
-            </div>
-            
+                      
             {/* Made by bolt.new Logo */}
             <div className="flex items-center space-x-2 text-white/60 hover:text-white/80 transition-colors duration-300">
               <div className="flex items-center space-x-1">
