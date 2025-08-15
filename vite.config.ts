@@ -47,5 +47,21 @@ export default defineConfig({
       }
     })
   ],
-  assetsInclude: ['**/*.mp3']
+  assetsInclude: ['**/*.mp3'],
+  build: {
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.mp3')) {
+            return 'assets/media/[name][extname]';
+          }
+          if (assetInfo.name && (assetInfo.name.endsWith('.png') || assetInfo.name.endsWith('.jpg'))) {
+            return 'assets/images/[name][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        }
+      }
+    }
+  }
 })
